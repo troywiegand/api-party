@@ -5,6 +5,7 @@ import './App.css';
 import Github from './Github'
 import Homework from './Homework'
 import Number from './Number'
+import Pokemon from './Pokemon'
 
 class App extends Component {
   render() {
@@ -25,12 +26,16 @@ class App extends Component {
           <li>
             <NavLink to="/number">Misc Number Facts</NavLink>
           </li>
+          <li>
+            <NavLink to="/pokemon">Pokemon Info</NavLink>
+          </li>
       </ul>
 
       <Switch>
         <Route path="/github" component={Github}/>
         <Route path="/homework" component={Homework} />
         <Route path="/number" component={Number} />
+        <Route path="/pokemon" component={Pokemon} />
         <Route render={()=> <p>Click a h*ckin' link</p>}/>
         
       </Switch>
