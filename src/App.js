@@ -4,6 +4,7 @@ import {Route, NavLink, Switch} from 'react-router-dom'
 import './App.css';
 import Github from './Github'
 import Homework from './Homework'
+import Number from './Number'
 
 class App extends Component {
   render() {
@@ -21,12 +22,17 @@ class App extends Component {
         <li>
             <NavLink to="/homework">Homework</NavLink>
           </li>
+          <li>
+            <NavLink to="/number">Misc Number Facts</NavLink>
+          </li>
       </ul>
 
       <Switch>
         <Route path="/github" component={Github}/>
         <Route path="/homework" component={Homework} />
+        <Route path="/number" component={Number} />
         <Route render={()=> <p>Click a h*ckin' link</p>}/>
+        
       </Switch>
       </div>
 
