@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
+
+
 var Pokedex = require('pokedex-promise-v2');
 var P = new Pokedex();
+
+
 
 class PokemonInfo extends Component {
   constructor(props) {
@@ -8,7 +12,9 @@ class PokemonInfo extends Component {
 
     this.state = {
       pokemon: {},
-      pokemonInfo: {}
+      pokemonInfo: {
+          sprites: {}
+      }
     }
 
     this.fetchUserData()
@@ -22,15 +28,18 @@ class PokemonInfo extends Component {
 
   fetchUserData = () => {
     const { pokemon } = this.props.match.params
-    P.getPokemonByName(pokemon).then((pokemonInfo)=>this.setState({pokemonInfo}))
-    
+    P.getPokemonByName(pokemon).then((pokemonInfo)=>this.setState({pokemonInfo}, () => console.log(this.state.pokemonInfo["sprites"].front_default)))
   }
+  
 
   render() {
     return (
       <div className="PokemonInfo">
-        <p> { JSON.stringify(this.state.pokemonInfo.sprites) } </p>
-          
+      <h2>{this.state.pokemonInfo["name"]} </h2>
+        <img
+          src={ this.state.pokemonInfo["sprites"].front_default  }
+          alt={this.state.pokemon}
+        />
       </div>
     )
   }

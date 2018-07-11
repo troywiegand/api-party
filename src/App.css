@@ -48,3 +48,7 @@ h3 {
 .navLinks a:hover {
   color: #0184be;
 }
+
+h2:first-letter {
+  text-transform:capitalize;
+}
